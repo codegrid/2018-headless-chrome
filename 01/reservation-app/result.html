@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Headless Chrome | Demo</title>
+  </head>
+  <body>
+    <h2>result</h2>
+    <p id="result"></p>
+<script>
+const isSuccess = () => {
+  const min = 0 ;
+  const max = 1 ;
+  return Math.floor( Math.random() * (max + 1 - min) ) + min ;
+}
+const msg = isSuccess() ? 'reservation success !' : 'reservation failure !'
+document.querySelector('#result').innerHTML = msg
+</script>
+  </body>
+</html>

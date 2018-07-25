@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>Headless Chrome | Demo</title>
+  </head>
+  <body>
+    <form action="loading.html">
+      <h2>confirmation</h2>
+      <dl>
+        <dt>item</dt>
+        <dd>foo</dd>
+        <dt>color</dt>
+        <dd><div id="color"></div></dd>
+        <dt>quantity</dt>
+        <dd><div id="quantity"></div></dd>
+      </dl>
+      <div>
+        <button>cancel</button>
+        <input type="submit" value="OK"/>
+      </div>
+
+    </form>
+<script>
+const getParams = queryString => {
+  if (queryString === '' || queryString === '?') {
+    return {};
+  }
+  const params = queryString.substr(1).split('&');
+  return params.reduce((output, current) => {
+    const param = current.split('=');
+    const name = param[0];
+    let value = param[1];
+    try {
+      value = decodeURIComponent(value);
+    } catch (e) {}
+    output[name] = value;
+    return output;
+  }, {});
+};
+const params = getParams(location.search)
+document.querySelector('#color').innerHTML = params.color
+document.querySelector('#quantity').innerHTML = params.quantity
+</script>
+  </body>
+</html>

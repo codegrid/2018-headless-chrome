@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "reservation-app": "http-server reservation-app"
+  },
+  "dependencies": {
+    "chrome-launcher": "0.10.2",
+    "chrome-remote-interface": "0.26.0"
+  },
+  "devDependencies": {
+    "http-server": "0.11.1"
+  }
+}
