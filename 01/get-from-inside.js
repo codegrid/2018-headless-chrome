@@ -33,8 +33,8 @@ chromeLauncher.launch({
     });
     console.log(json);
 
-    protocol.close();
-    chrome.kill();
+    await protocol.close();
+    await chrome.kill();
   }).on('error', err => {
     throw Error('Cannot connect to Chrome:' + err);
   });
