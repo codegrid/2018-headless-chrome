@@ -38,10 +38,5 @@ const puppeteer = require('puppeteer');
     path: './screenshot/5.png',
   });
 
-  const base64 = await header.screenshot({
-    encoding: 'base64'
-  });
-  console.log(base64);
-
   browser.close();
 })();
