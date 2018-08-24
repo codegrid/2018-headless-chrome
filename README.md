@@ -19,13 +19,12 @@
 npm run reservation-app
 ```
 
-## 第2回 Puppeteerの基本機能のデモ
+## 第2回 Puppeteerの利用のデモ
 
+- ポート番号を確認する
+  - [02/puppeteer-base.js](02/puppeteer-base.js)
 - 任意のスクリーンショットを撮る
   - [02/screenshot.js](02/screenshot.js)
+  - [02/screenshot_base64.js](02/screenshot_base64.js)
 - PDFを生成する
   - [02/pdf.js](02/pdf.js)
-- CodeGridをスクレイピングする
-  - [02/scraping-codegrid.js](02/scraping-codegrid.js)
-- ターミナルからYouTubeを操作する
-  - [02/youtube-player.js](02/youtube-player.js)
