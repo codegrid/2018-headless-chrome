@@ -4,7 +4,7 @@ module.exports = class PageWatcher {
   constructor(page, playList) {
     this.redirectUrl = '';
     this._onChangeVideo = () => {};
-    this.startWatch(page, playList);
+    this._startWatch(page, playList);
   }
 
   onChangeVideo(cb) {
@@ -23,7 +23,7 @@ module.exports = class PageWatcher {
     return this.redirectUrl === '';
   }
 
-  async execRedirect(page) {
+  async _execRedirect(page) {
     if (this.isFinishedRedirect()) {
       return;
     }
@@ -34,7 +34,24 @@ module.exports = class PageWatcher {
     this.finishedRedirect();
   }
 
-  async getPageTitleAndUrl(page) {
+  _startWatch(page, playList) {
+    const watch = async () => {
+      await this._watch(page, playList);
+      setTimeout(watch, 300);
+    };
+    watch();
+  }
+
+  async _watch(page, playList) {
+    if (!this.isFinishedRedirect()) {
+      await this._execRedirect(page);
+      return;
+    }
+    await this._watchVideoChange(page, playList);
+    await this._skipAd(page);
+  }
+
+  async _getPageTitleAndUrl(page) {
     const el = await page.$('h1.title');
     if (!el) {
       return {
@@ -51,29 +68,12 @@ module.exports = class PageWatcher {
     };
   }
 
-  startWatch(page, playList) {
-    const watch = async () => {
-      await this._watch(page, playList);
-      setTimeout(watch, 300);
-    };
-    watch();
-  }
-
-  async _watch(page, playList) {
-    if (!this.isFinishedRedirect()) {
-      await this.execRedirect(page);
-      return;
-    }
-    await this._watchVideoChange(page, playList);
-    await this._skipAd(page);
-  }
-
   async _watchVideoChange(page, playList) {
     const {
       isChangedPage,
       title,
       url
-    } = await this.getPageTitleAndUrl(page);
+    } = await this._getPageTitleAndUrl(page);
     if (!isChangedPage) {
       return;
     }
