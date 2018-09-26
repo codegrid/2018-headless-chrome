@@ -62,8 +62,8 @@ const data = {
       return data[id] === '';
     });
     if(errorId){
-      // data.errorMsg = data.names[errorId] + 'が入力されてません。';
-   data.errorMsg = data.names[errorId] + 'を入力してください！';
+      data.errorMsg = data.names[errorId] + 'が入力されてません。';
+  //  data.errorMsg = data.names[errorId] + 'を入力してください！';
       return false;
     }
     return true;
