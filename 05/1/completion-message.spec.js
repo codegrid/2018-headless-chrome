@@ -1,3 +1,5 @@
+jest.setTimeout(1000 * 60 * 3);
+
 beforeAll(async () => {
   // テスト用のポートを指定
   await page.goto('http://localhost:8081/user_register.html');

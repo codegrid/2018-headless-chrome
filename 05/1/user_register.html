@@ -63,7 +63,6 @@ const data = {
     });
     if(errorId){
       data.errorMsg = data.names[errorId] + 'が入力されてません。';
-  //  data.errorMsg = data.names[errorId] + 'を入力してください！';
       return false;
     }
     return true;
@@ -76,8 +75,8 @@ const template = `
       <h1>ユーザ情報の入力</h1>
       <form name="register" onSubmit="return false">
         <input v-model="user" :placeholder="names.user" name="user" class="user"/>
-        <input v-model="pass" :placeholder="names.pass" name="pass" class="pass"/>
-        <input v-model="pass_check" :placeholder="names.pass_check" name="pass_check" class="pass_check"/>
+        <input v-model="pass" type="password" :placeholder="names.pass" name="pass" class="pass"/>
+        <input v-model="pass_check" type="password" :placeholder="names.pass_check" name="pass_check" class="pass_check"/>
         <div v-if="errorMsg" class="error">{{errorMsg}}</div>
         <button v-on:click="changeStep(1)" class="goNextPage">NEXT</button>
       </form>

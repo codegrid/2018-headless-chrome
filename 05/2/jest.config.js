@@ -1,4 +1,5 @@
 module.exports = {
-  preset: 'jest-puppeteer',
-  setupTestFrameworkScriptFile: './jest-setup-test-framework.js',
+  globalSetup: './setup.js',
+  globalTeardown: './teardown.js',
+  testEnvironment: './environment.js'
 };

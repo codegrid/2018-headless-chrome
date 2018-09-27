@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:ci": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -12,7 +12,6 @@
   "devDependencies": {
     "http-server": "0.11.1",
     "jest": "23.5.0",
-    "jest-image-snapshot": "2.5.0",
     "jest-puppeteer": "3.3.1",
     "puppeteer": "1.8.0"
   }
