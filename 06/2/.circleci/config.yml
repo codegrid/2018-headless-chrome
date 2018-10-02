@@ -1,0 +1,50 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+    # 開発環境に合わせたNodeのバージョンを指定
+      - image: circleci/node:8.11.3-browsers
+
+    # ブラウザを含まない場合はこちらを指定
+    # - image: circleci/node:8.11.3
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - cg-demo-{{ checksum "package.json" }}
+
+    # libxcb関連モジュールのインストール
+    # - run: chmod +x ./setup_libxcb.sh
+    # - run: sh ./setup_libxcb.sh
+
+    # Chromeのアップデート
+    # - run: chmod +x ./setup_chrome.sh
+    # - run: sh ./setup_chrome.sh
+
+      - run: npm install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: cg-demo-{{ checksum "package.json" }}
+
+      - run:
+          name: Test
+
+          # --updateSnapshot付きでテストを実行
+          command: |
+            sleep 2
+            npm run test:ci -- --maxWorkers=2
+
+      # jest-image-snapshot 関連の設定
+      - store_artifacts:
+          path: test/__image_snapshots__/__diff_output__
+          destination: image_snapshot_diff
