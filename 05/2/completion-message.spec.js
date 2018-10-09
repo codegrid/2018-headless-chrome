@@ -4,7 +4,7 @@ beforeAll(async () => {
   await page.goto('http://localhost:8081/user_register.html');
 });
 
-it('登録完了メッセージが表示される', async () => {
+test('登録完了メッセージが表示される', async () => {
   await page.waitFor(100);
   await page.type('.user', 'yamada_taro');
   await page.type('.pass', 'password');
@@ -18,4 +18,3 @@ it('登録完了メッセージが表示される', async () => {
   const message = await page.$eval('.message', el => el.textContent);
   expect(message).toBe('登録が完了しました');
 });
-

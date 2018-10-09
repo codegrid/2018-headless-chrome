@@ -23,7 +23,7 @@ afterAll(async () => {
   await browser.close();
 });
 
-it('登録完了メッセージが表示される', async () => {
+test('登録完了メッセージが表示される', async () => {
   await page.waitFor(100);
 
   await page.type('.user', 'yamada_taro');

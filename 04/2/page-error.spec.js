@@ -21,7 +21,7 @@ const urls = [
 
 describe('画面表示時エラーテスト', () => {
   urls.forEach(url => {
-    it(url, async done => {
+    test(url, async done => {
       const page = await browser.newPage();
       page.on('pageerror', err => {
         throw err;
@@ -34,4 +34,3 @@ describe('画面表示時エラーテスト', () => {
     });
   });
 });
-

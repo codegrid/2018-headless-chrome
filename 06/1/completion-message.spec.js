@@ -3,7 +3,7 @@ beforeAll(async () => {
   await page.goto('http://localhost:8081/user_register.html');
 });
 
-it('登録完了メッセージが表示される', async () => {
+test('登録完了メッセージが表示される', async () => {
   // フォームに値を埋める
   await expect(page).toFillForm('form[name="register"]', {
     user: 'yamada_taro',
