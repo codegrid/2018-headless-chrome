@@ -1,3 +1,7 @@
+/**
+ * Googleにアクセスし、Puppeteerで得たロゴ画像URLより`node-fetch`で画像を取得し、
+ * ファイルシステムに保存しています。
+ */
 const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');

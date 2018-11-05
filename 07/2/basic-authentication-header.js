@@ -1,3 +1,7 @@
+/**
+ * 次の書式でコマンドラインより実行することで、ベーシック認証によるアクセス制限のあるページのスクリーンショットを保存します。
+ * node basic-authentication <url> <username> <password>
+ */
 const puppeteer = require('puppeteer');
 
 (async () => {

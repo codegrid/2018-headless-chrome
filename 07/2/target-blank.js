@@ -1,3 +1,8 @@
+/**
+ * 新しいページが生成される際に発火する`targetcreated`にて得られる`target`インスタンスより、
+ * 新たに生成されたページインスタンスを得ています。
+ * また、選択中のタブを切り替えるには次のように`page.bringToFront()`を使用します。
+ */
 const puppeteer = require('puppeteer');
 
 (async () => {
